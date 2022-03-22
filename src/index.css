@@ -86,6 +86,7 @@ button {
   outline: none;
   border-radius: 5px;
   color: #fff;
+  cursor: pointer;
   width: 477px;
   height: 40px;
 }
