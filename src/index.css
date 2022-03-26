@@ -18,12 +18,11 @@ body {
 .App {
   background-color: #fff;
   width: 550px;
-  height: 550px;
-  margin: 30px auto;
+  max-height: 550px;
 }
 
 .header {
-  background-image: linear-gradient(to right, #672280, #a626d3);
+  background-image: linear-gradient(to right, #222480, #2926d3);
   color: #fff;
   display: flex;
   align-items: center;
@@ -82,7 +81,7 @@ input::placeholder {
 }
 
 button {
-  background-image: linear-gradient(to right, #672280, #a626d3);
+  background-image: linear-gradient(to right, #222480, #2926d3);
   border: none;
   outline: none;
   border-radius: 5px;
@@ -92,63 +91,30 @@ button {
   height: 40px;
 }
 
-.displayed-meme {
-  position: relative;
-  /* max-width: 460px;
-  max-height: 340px;
-  height: auto;
-  margin-top: 10px; */
-  /* padding: 30px;
-  width: 100%; */
-}
-
-.meme-text {
-  position: absolute;
-  color: white;
-  font-family: impact, sans-serif;
-  font-size: 1.6rem;
-  left: 50%;
-  padding: 0 5px;
-  text-transform: uppercase;
-  transform: translateX(-50%);
-  letter-spacing: 2px;
-  text-align: center;
-  text-shadow: 2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000,
-    -2px 2px 0 #000, 0 2px 0 #000, 2px 0 0 #000, 0 -2px 0 #000, -2px 0 0 #000,
-    2px 2px 5px #000;
-}
-
-.bottom {
-  bottom: 100px;
-}
-
-.top {
-  top: 300px;
-}
-
 .meme-container {
   position: relative;
+  text-align: center;
 }
 
 .displayed-meme {
+  padding: 0 30px;
+  max-height: 350px;
   max-width: 100%;
-  border-radius: 3px;
-  height: auto;
 }
 
 .meme-text {
   position: absolute;
-  width: 80%;
-  text-align: center;
-  left: 50%;
-  transform: translateX(-50%);
-  margin: 15px 0;
-  padding: 0 5px;
+  color: #fff;
   font-family: impact, sans-serif;
   font-size: 2em;
+  left: 50%;
+  text-align: center;
+  margin: 15px 0;
+  padding: 0 5px;
+  transform: translateX(-50%);
   text-transform: uppercase;
-  color: white;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
+  width: 80%;
   text-shadow: 2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000,
     -2px 2px 0 #000, 0 2px 0 #000, 2px 0 0 #000, 0 -2px 0 #000, -2px 0 0 #000,
     2px 2px 5px #000;

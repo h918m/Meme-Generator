@@ -1,24 +1,39 @@
 import React, { useState, useEffect } from "react";
-import "../index.css";
+
 const Generator = () => {
   const [meme, setMeme] = useState({
     upperText: "",
     lowerText: "",
-    randomImage: "http://i.imgflip.com/1bij.jpg",
+    randomMeme: "https://i.imgflip.com/1bij.jpg",
   });
 
   const [allMemes, setAllMemes] = useState([]);
 
+  useEffect(() => {
+    const getMemes = async () => {
+      const response = await fetch("https://api.imgflip.com/get_memes");
+      const result = await response.json();
+      setAllMemes(result.data.memes);
+    };
+
+    getMemes();
+  }, []);
+
   function getMemeImage() {
-    const memesArray = allMemes.data.memes;
-    const randomIndex = Math.floor(Math.random() * memesArray.length);
-    const link = memesArray[randomIndex].url;
+    const randomIndex = Math.floor(Math.random() * allMemes.length);
+    console.log(randomIndex);
+
+    const link = allMemes[randomIndex].url;
 
     setMeme((prevMeme) => ({
       ...prevMeme,
-      randomImage: link,
+      randomMeme: link,
     }));
   }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -28,20 +43,6 @@ const Generator = () => {
       [name]: value,
     }));
   }
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
-
-  useEffect(() => {
-    getMemes();
-  }, []);
-
-  const getMemes = async () => {
-    const response = await fetch("https://api.imgflip.com/get_memes");
-    const data = await response.json();
-    setAllMemes(data);
-  };
 
   return (
     <main>
